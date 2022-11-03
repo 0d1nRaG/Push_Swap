@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 19:18:52 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/03 11:31:09 by rbony            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,32 +63,46 @@ void	error(char *str)
 
 /* gros du parsing, split quand 2 args, et atoi quand plus*/
 
-void	checking_entry(int argc, char **argv)
+int	check(char **argv, int argc)
 {
 	int		i;
 	long	tmpo;
-
+	
 	i = 0;
-	tmpo = 0;
-	if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		if (!*argv)
-			return ;
-	}
-	else
+	if (argc != 2)
 		i = 1;
+	tmpo = 0;
 	while (argv[i])
 	{
 		tmpo = ft_atoi(argv[i]);
 		if(!*argv[i] || !check_num(argv[i]) || check_repeat(tmpo, argv, i))
-			error("Error");
+			return (1);
 		tmpo = ft_atol(argv[i]);
 		if(tmpo < -2147483648 || tmpo > 2147483647)
-			error("Error");
+			return (1);
 		i++;
 	}
+	return (0);
+}
+
+void	checking_entry(int argc, char **argv)
+{
+	char	**split;
+
 	if (argc == 2)
-		free_all(argv);
+	{
+		split = ft_split(argv[1], ' ');
+		if (!split)
+			return ;
+		if (check(split, argc))
+			error("Error");
+	}
+	else
+	{
+		if (check(argv, argc))
+			error("Error");
+	}
+	if (argc == 2)
+		free_all(split);
 }
 

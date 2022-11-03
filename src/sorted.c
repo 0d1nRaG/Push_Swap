@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 18:27:47 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/03 11:08:39 by rbony            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,41 @@ int	stack_is_sorted(t_node	**stack)
 	while (head->next)
 	{
 		if (head->value > head->next->value)
-			return (0);
+			return (1);
 
 		head = head->next;
 	}
-	return (1);
+	return (0);
 }
 
 static	t_node	*get_min(t_node **stack)
 {
 	t_node	*head;
 	t_node	*min;
-	int		is_min;
 
-	min = NULL;
-	is_min = 0;
+	min = create_node(0);
 	head = *stack;
-
-	if (head)
+	while (head)
 	{
-		while (head)
-		{
-			if ((head->index = -1) && (!is_min || head->value < min->value))
-			{
-				min = head;
-				is_min = 1;
-			}
-			head = head->next;
-		}
+		if ((head->index = -1) && (head->value < min->value))
+			min = head;
+		head = head->next;
 	}
 	return (min);
+}
+
+int	got_index(t_node **stack)
+{
+	t_node *tmp;
+	
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->index == -1)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }
 
 void	put_index(t_node	**stack)
@@ -58,11 +63,11 @@ void	put_index(t_node	**stack)
 	int		index;
 
 	index = 0;
-	head = get_min(stack);
-	while (head)
+	while (got_index(stack))
 	{
-		head->index = index++;
 		head = get_min(stack);
+		head->index = index;
+		index++;
 	}
 }
 

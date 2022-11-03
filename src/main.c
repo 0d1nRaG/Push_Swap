@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 19:06:23 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/03 11:29:04 by rbony            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ int	main(int argc, char **argv)
 	stack_b = (t_node **)malloc(sizeof(t_node *));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	create_stack(argv, argc, stack_a);
-	if (stack_is_sorted(stack_a))
+	if (argc == 2)
+		create_stack(ft_split(argv[1], ' '), argc, stack_a);
+	else
+		create_stack(argv, argc, stack_a);
+	if (!stack_is_sorted(stack_a))
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
