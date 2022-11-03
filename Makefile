@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+         #
+#    By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 17:04:33 by tobiaslst         #+#    #+#              #
-#    Updated: 2022/11/02 19:23:35 by tobiaslst        ###   ########.fr        #
+#    Updated: 2022/11/03 10:18:05 by tcaborde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			=			push_swap
 LIB				=			libft/libft.a
 HEADER			=			/includes/push_swap.h
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=leak -g
+CFLAGS = -Wall -Werror -Wextra
 CC	= 	gcc
 LFT = -L libft -lft
 

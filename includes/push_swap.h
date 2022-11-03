@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 17:30:41 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 18:19:25 by tobiaslst        ###   ########.fr       */
+/*   Created: 2022/11/03 10:16:43 by tcaborde          #+#    #+#             */
+/*   Updated: 2022/11/03 10:17:29 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <stdbool.h>
 # include "../libft/libft.h"
 
-typedef	struct s_node
+typedef struct s_node
 {
 	int				value;
 	int				index;
@@ -54,6 +54,4 @@ void		put_index(t_node	**stack);
 void		little_sorting(t_node	**stack);
 void		radix_sort(t_node	**stack_a, t_node	**stack_b);
 
-
-
-# endif
+#endif
