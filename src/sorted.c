@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/03 11:08:39 by rbony            ###   ########lyon.fr   */
+/*   Updated: 2022/11/08 14:36:04 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
+#include <limits.h>
 
 int	stack_is_sorted(t_node	**stack)
 {
@@ -19,9 +21,8 @@ int	stack_is_sorted(t_node	**stack)
 	head = *stack;
 	while (head->next)
 	{
-		if (head->value > head->next->value)
+		if (head->index > head->next->index)
 			return (1);
-
 		head = head->next;
 	}
 	return (0);
@@ -30,23 +31,31 @@ int	stack_is_sorted(t_node	**stack)
 static	t_node	*get_min(t_node **stack)
 {
 	t_node	*head;
-	t_node	*min;
+	t_node	*tmp;
+	int		min;
 
-	min = create_node(0);
+	min = INT_MAX;
+	tmp = NULL;
 	head = *stack;
 	while (head)
 	{
-		if ((head->index = -1) && (head->value < min->value))
-			min = head;
+		if (head->index == -1)
+		{
+			if (head->value < min)
+			{
+				min = head->value;
+				tmp = head;
+			}
+		}
 		head = head->next;
 	}
-	return (min);
+	return (tmp);
 }
 
 int	got_index(t_node **stack)
 {
-	t_node *tmp;
-	
+	t_node	*tmp;
+
 	tmp = *stack;
 	while (tmp)
 	{
@@ -66,6 +75,8 @@ void	put_index(t_node	**stack)
 	while (got_index(stack))
 	{
 		head = get_min(stack);
+		if (!head)
+			return ;
 		head->index = index;
 		index++;
 	}

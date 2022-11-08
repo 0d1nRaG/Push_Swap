@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/03 11:29:04 by rbony            ###   ########lyon.fr   */
+/*   Updated: 2022/11/08 14:25:41 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		create_stack(ft_split(argv[1], ' '), argc, stack_a);
 	else
 		create_stack(argv, argc, stack_a);
-	if (!stack_is_sorted(stack_a))
+	if (stack_is_sorted(stack_a))
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
