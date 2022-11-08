@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/03 11:31:09 by rbony            ###   ########lyon.fr   */
+/*   Updated: 2022/11/08 15:16:35 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 static	int	check_repeat(int nb, char **argv, int i)
 {
 	i++;
-	while(argv[i])
+	while (argv[i])
 	{
-		if(ft_atoi(argv[i]) == nb)
+		if (ft_atoi(argv[i]) == nb)
 			return (1);
 		i++;
 	}
@@ -30,7 +30,7 @@ void	free_all(char **str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
@@ -39,17 +39,17 @@ void	free_all(char **str)
 }
 
 /* passe isdigit dans la chaîne */
-static	int check_num(char *str)
+static	int	check_num(char *str)
 {
 	int	i;
 
 	i = 0;
-	if(str[0] == '-')
+	if (str[0] == '-')
 		i++;
-	while(str[i])
+	while (str[i])
 	{
-			if(!ft_isdigit(str[i]))
-				return(0);
+		if (!ft_isdigit(str[i]))
+			return (0);
 			i++;
 	}
 	return (1);
@@ -67,7 +67,7 @@ int	check(char **argv, int argc)
 {
 	int		i;
 	long	tmpo;
-	
+
 	i = 0;
 	if (argc != 2)
 		i = 1;
@@ -75,10 +75,10 @@ int	check(char **argv, int argc)
 	while (argv[i])
 	{
 		tmpo = ft_atoi(argv[i]);
-		if(!*argv[i] || !check_num(argv[i]) || check_repeat(tmpo, argv, i))
+		if (!*argv[i] || !check_num(argv[i]) || check_repeat(tmpo, argv, i))
 			return (1);
 		tmpo = ft_atol(argv[i]);
-		if(tmpo < -2147483648 || tmpo > 2147483647)
+		if (tmpo < -2147483648 || tmpo > 2147483647)
 			return (1);
 		i++;
 	}
@@ -105,4 +105,3 @@ void	checking_entry(int argc, char **argv)
 	if (argc == 2)
 		free_all(split);
 }
-

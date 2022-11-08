@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rbony <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 17:04:33 by tobiaslst         #+#    #+#              #
-#    Updated: 2022/11/03 11:12:12 by rbony            ###   ########lyon.fr    #
+#    Updated: 2022/11/08 17:09:29 by tcaborde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,14 +35,14 @@ OBJS			=			$(patsubst %.c, %.o, $(SRCS))
 all : lib $(NAME)
 
 $(NAME):${OBJS} ${INCLUDES} ${LIB} Makefile
-		@$(CC) $(LFT) $(OBJS) -I includes -o $(NAME)
+		@$(CC)  -fsanitize=address -g3 $(LFT) $(OBJS) -I includes -o $(NAME)
 
 lib:
 		make -C ./libft
 
 
 %.o : %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC)  -fsanitize=address -g3 $(CFLAGS) -c $< -o $@
 
 
 clean :

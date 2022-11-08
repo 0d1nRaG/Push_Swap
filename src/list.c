@@ -3,37 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:49:53 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/03 11:28:53 by rbony            ###   ########lyon.fr   */
+/*   Updated: 2022/11/08 15:17:34 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
 /* Créer un node */
 t_node	*create_node(int nb)
 {
 	t_node	*node;
+
 	node = (t_node *) malloc(sizeof(t_node));
-		if (!node)
-			return (NULL);
+	if (!node)
+		return (NULL);
 	node->value = nb;
 	node->index = -1;
 	node->next = NULL;
-
-	return(node);
+	return (node);
 }
 
 // renvoie le denier node de la liste
 t_node	*node_last(t_node *head)
 {
-	if (!head)
-		return (NULL);
 	t_node	*tmp;
 
+	if (!head)
+		return (NULL);
 	tmp = head;
 	while (tmp->next)
 		tmp = tmp->next;
@@ -52,9 +51,9 @@ void	add_node_top(t_node **stack, t_node *node)
 // node en fin de liste
 void	add_node_bot(t_node **stack, t_node *node)
 {
-	t_node *temp;
+	t_node	*temp;
 
-	if(!node)
+	if (!node)
 		return ;
 	if (*stack)
 	{

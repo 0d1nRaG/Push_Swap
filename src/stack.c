@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:17:06 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 18:33:53 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/08 15:17:49 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	swap(t_node **stack)
 {
 	t_node	*tmp;
 
-	if(stack_size(*stack) < 2)
+	if (stack_size(*stack) < 2)
 		return ;
 	tmp = (*stack)->next;
 	(*stack)->next = *stack;

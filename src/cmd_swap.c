@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:31:13 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 18:19:10 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/08 15:18:01 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_node  **stack_a)
+void	sa(t_node **stack_a)
 {
 	swap(stack_a);
 	ft_putendl_fd("sa", 1);

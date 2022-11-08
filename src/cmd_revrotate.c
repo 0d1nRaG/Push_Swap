@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_revrotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:30:43 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/02 18:14:45 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/08 15:18:06 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 void	rra(t_node	**stack_a)
 {
