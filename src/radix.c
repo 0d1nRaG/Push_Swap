@@ -6,12 +6,25 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:29:42 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/08 14:39:34 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:35:58 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
+
+void	free_all(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 
 void	radix_sort(t_node	**stack_a, t_node	**stack_b)
 {

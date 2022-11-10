@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/10 14:26:01 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:36:02 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,6 @@ static	int	check_repeat(int nb, char **argv, int i)
 		i++;
 	}
 	return (0);
-}
-
-void	free_all(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }
 
 /* passe isdigit dans la chaîne */
