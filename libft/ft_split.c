@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:53:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/10 14:31:44 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:33:39 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,7 @@ char	**ft_split(char const *s, char c)
 		size = len_word((char *)s + i, c);
 		if (size > 0)
 		{
-			tab[j] = ft_substr(s, i, size);
-			j++;
+			tab[j++] = ft_substr(s, i, size);
 			i--;
 		}
 		i += size;
