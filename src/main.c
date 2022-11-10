@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/08 14:25:41 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:46:34 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	checking_entry(argc, argv);
+	if (!checking_entry(argc, argv))
+		return (1);
 	stack_a = (t_node **)malloc(sizeof(t_node *));
 	stack_b = (t_node **)malloc(sizeof(t_node *));
 	*stack_a = NULL;

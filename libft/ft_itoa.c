@@ -3,75 +3,85 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:30:13 by tobiaslst         #+#    #+#             */
-/*   Updated: 2021/11/17 21:42:24 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/10 14:02:17 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int  whats_my_len(int n)
-{
-	int	i;
+#include "libft.h"
 
-	if (n == -2147483648)
-	{
-		i = 11;
-		return (i);
-	}
-	i = 1;
-	if (n < 0)
-	{    
-		n *= -1;
-		i++;
-	}
+static int	ft_nblen(unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
 	while (n >= 10)
 	{
 		n /= 10;
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 
-char *ft_itoa(int n)
+static char	*ft_allocm(unsigned int len, int n)
 {
-	int		len;
-	int		i;
-	char	*s;
+	char	*dest;
 
-	len = whats_my_len(n);
-	i = len;
-	s = malloc(sizeof(char) * len +  1);
-	if (!s)
+	if (n < 0)
+		dest = (char *)malloc(sizeof(char) * len + 1 + 1);
+	else
+		dest = (char *)malloc(sizeof(char) * len + 1);
+	return (dest);
+}
+
+static unsigned int	ft_checksign(int n)
+{
+	unsigned int	nb;
+
+	if (n < 0)
+		nb = -n;
+	else
+		nb = n;
+	return (nb);
+}
+
+static char	*ft_finalizer(char *src, unsigned int index,
+				unsigned int len, unsigned int nb)
+{
+	src[index] = nb % 10 + 48;
+	src[len] = '\0';
+	return (src);
+}
+
+char	*ft_itoa(int n)
+{
+	char			*dest;
+	unsigned int	len;
+	unsigned int	nb;
+	unsigned int	i;
+
+	nb = ft_checksign(n);
+	len = ft_nblen(nb);
+	dest = ft_allocm(len, n);
+	i = 0;
+	if (!dest)
 		return (NULL);
-	if (n >= 0 && s)
+	if (n < 0)
 	{
-		len--;
-		s[len] = '0' + (n % 10);
-		n = n / 10;
-		while (n != 0)
-		{
-			len--;
-			s[len] = '0' + (n % 10);
-			n = n / 10;
-		}
+		dest[i] = '-';
+		len++;
 	}
-	else if (s)
+	i = len - 1;
+	while (nb >= 10)
 	{
-		len--;
-		s[len] = '0' - (n % 10);
-		n = n / 10;
-		while (n != 0)
-		{
-			len--;
-			s[len] = '0' - (n % 10);
-			n = n / 10;
-		}
-		len--;
-		s[len] = '-';
+		dest[i] = nb % 10 + 48;
+		nb /= 10;
+		i--;
 	}
-	s[i] = '\0';
-	return (s);
+	ft_finalizer(dest, i, len, nb);
+	return (dest);
 }

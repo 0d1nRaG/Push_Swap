@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:16:43 by tcaborde          #+#    #+#             */
-/*   Updated: 2022/11/03 10:17:29 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:52:44 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		add_node_bot(t_node **stack, t_node *node);
 void		create_stack(char	**argv, int argc, t_node **stack);
 void		free_all(char **str);
 void		error(char *str);
-void		checking_entry(int argc, char **argv);
+int			checking_entry(int argc, char **argv);
 int			stack_is_sorted(t_node	**stack);
 int			stack_size(t_node *head);
 void		swap(t_node **stack);

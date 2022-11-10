@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/08 15:16:35 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 13:19:20 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ static	int	check_num(char *str)
 	int	i;
 
 	i = 0;
+	if (ft_strlen(str) < 1)
+		return (0);
 	if (str[0] == '-')
 		i++;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			return (0);
-			i++;
+		i++;
 	}
 	return (1);
 }
@@ -85,15 +87,15 @@ int	check(char **argv, int argc)
 	return (0);
 }
 
-void	checking_entry(int argc, char **argv)
+int	checking_entry(int argc, char **argv)
 {
 	char	**split;
 
-	if (argc == 2)
+	if (argc == 2 && ft_strlen(argv[1]) > 1)
 	{
 		split = ft_split(argv[1], ' ');
 		if (!split)
-			return ;
+			return (0);
 		if (check(split, argc))
 			error("Error");
 	}
@@ -104,4 +106,5 @@ void	checking_entry(int argc, char **argv)
 	}
 	if (argc == 2)
 		free_all(split);
+	return (1);
 }

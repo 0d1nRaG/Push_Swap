@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/08 14:36:04 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:50:46 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	stack_is_sorted(t_node	**stack)
 	t_node	*head;
 
 	head = *stack;
+	if (!stack)
+		exit(1);
 	while (head->next)
 	{
 		if (head->index > head->next->index)

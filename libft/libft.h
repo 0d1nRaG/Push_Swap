@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:11:00 by tcaborde          #+#    #+#             */
-/*   Updated: 2022/10/03 11:36:27 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/10 14:03:42 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_itoa(int n);
-void 		ft_striteri(char *s, void (*f)(unsigned int,char*));
+void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		**ft_split(char const *s, char c);
 long long	ft_atol(const char	*str);
 
 typedef struct s_list
 {
-void *content;
-struct s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 #endif
