@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:53:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/10 13:42:57 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:31:44 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,27 @@ static size_t	word_getsize(char *s, char c)
 	return (total);
 }
 
+static	int	check_n_comp(char *s, char c)
+{
+	int		i;
+	size_t	counter;
+
+	i = 0;
+	counter = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			counter++;
+		i++;
+	}
+	if (ft_strlen(s) == counter)
+	{
+		ft_putendl_fd("Error", 2);
+		exit(0);
+	}
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -54,6 +75,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	check_n_comp(((char *)s), c);
 	size = word_getsize((char *)s, c);
 	tab = malloc((size + 1) * sizeof(char *));
 	if (!tab)

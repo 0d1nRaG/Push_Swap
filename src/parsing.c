@@ -6,7 +6,7 @@
 /*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/10 13:19:20 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:26:01 by tcaborde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	checking_entry(int argc, char **argv)
 	{
 		split = ft_split(argv[1], ' ');
 		if (!split)
-			return (0);
+			error("Error");
 		if (check(split, argc))
 			error("Error");
 	}
