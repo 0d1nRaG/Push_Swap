@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+         #
+#    By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 17:04:33 by tobiaslst         #+#    #+#              #
-#    Updated: 2022/11/08 17:09:29 by tcaborde         ###   ########.fr        #
+#    Updated: 2022/11/13 16:06:16 by tobiaslst        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS 			=			src/cmd_push.c \
 							src/radix.c \
 							src/sorted.c \
 							src/stack.c \
-							src/main.c
+							src/main.c \
+							src/opti.c
 
 
 OBJS			=			$(patsubst %.c, %.o, $(SRCS))

@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/10 12:46:34 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/13 20:42:13 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	choose_sort(t_node	**stack_a, t_node	**stack_b)
+{
+	if (stack_size(*stack_a) <= 5)
+		little_sorting(stack_a);
+	else
+		radix_sort(stack_a, stack_b);
+}
 
 int	main(int argc, char **argv)
 {
@@ -29,13 +37,14 @@ int	main(int argc, char **argv)
 		create_stack(ft_split(argv[1], ' '), argc, stack_a);
 	else
 		create_stack(argv, argc, stack_a);
-	if (stack_is_sorted(stack_a))
+	if (stack_is_not_sorted(stack_a))
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
 		return (0);
 	}
-	radix_sort(stack_a, stack_b);
+	put_index(stack_a);
+	choose_sort(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

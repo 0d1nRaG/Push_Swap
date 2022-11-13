@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:29:42 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/10 14:35:58 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:50:04 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	radix_sort(t_node	**stack_a, t_node	**stack_b)
 	j = 0;
 	size = stack_size(*stack_a);
 	put_index(stack_a);
-	while (stack_is_sorted(stack_a))
+	while (!stack_is_not_sorted(stack_a))
 	{
 		i = 0;
 		while (i < size)

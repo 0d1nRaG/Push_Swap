@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/09 12:50:46 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/13 20:35:08 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <limits.h>
 
-int	stack_is_sorted(t_node	**stack)
+int	stack_is_not_sorted(t_node	**stack)
 {
 	t_node	*head;
 
@@ -84,23 +84,23 @@ void	put_index(t_node	**stack)
 	}
 }
 
-/* void	little_sorting(t_node	**stack)
+void	little_sorting(t_node	**stack)
 {
 	int	stack_taille;
 
-	if (stack_is_sorted(stack_a) || stack_size(*stack_a) == 0
-		|| stack_size(*stack_a) == 1)
-		return ;
-	stack_taille = stack_size(*stack_a);
-	if (stack_taille = 2)
-		sa(stack_a);
+	if (!stack_is_not_sorted(stack) || stack_size(*stack) == 0
+		|| stack_size(*stack) == 1)
+			return ;
+	stack_taille = stack_size(*stack);
+	if (stack_taille == 2)
+		sa(stack);
 	else if (stack_taille == 3)
-		// tri ici pour 3 values
+		sort_three(stack);
 	else if (stack_taille == 4)
-		// tri ici pour 4 values
-	else if (stack_taille == 5)
-		// tri ici pour 5 values
-} */
+		sort_four(stack);
+	/*else if (stack_taille == 5)
+		// tri ici pour 5 values*/
+}
 
 void	free_stack(t_node	**stack)
 {

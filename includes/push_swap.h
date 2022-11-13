@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:16:43 by tcaborde          #+#    #+#             */
-/*   Updated: 2022/11/09 12:52:44 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/13 20:43:13 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdbool.h>
+#include <stdio.h>
 # include "../libft/libft.h"
 
 typedef struct s_node
@@ -43,7 +44,7 @@ void		create_stack(char	**argv, int argc, t_node **stack);
 void		free_all(char **str);
 void		error(char *str);
 int			checking_entry(int argc, char **argv);
-int			stack_is_sorted(t_node	**stack);
+int			stack_is_not_sorted(t_node	**stack);
 int			stack_size(t_node *head);
 void		swap(t_node **stack);
 void		push(t_node **stack_took, t_node **stack_drop);
@@ -53,5 +54,7 @@ void		free_stack(t_node	**stack);
 void		put_index(t_node	**stack);
 void		little_sorting(t_node	**stack);
 void		radix_sort(t_node	**stack_a, t_node	**stack_b);
+void		sort_three(t_node	**stack_a);
+void		sort_four(t_node	**stack_a);
 
 #endif

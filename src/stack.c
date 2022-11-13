@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcaborde <tcaborde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:17:06 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/08 15:17:49 by tcaborde         ###   ########.fr       */
+/*   Updated: 2022/11/13 20:43:02 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	swap(t_node **stack)
 	if (stack_size(*stack) < 2)
 		return ;
 	tmp = (*stack)->next;
-	(*stack)->next = *stack;
+	(*stack)->next = tmp->next;
+	tmp->next = *stack;
 	*stack = tmp;
 }
 
@@ -63,16 +64,16 @@ void	rotate(t_node **stack)
 
 void	rev_rotate(t_node **stack)
 {
+	t_node	*prev_last;
 	t_node	*last;
-	t_node	*current;
 
 	if (stack_size(*stack) < 2)
 		return ;
-	last = node_last(*stack);
-	current = *stack;
-	while (current->next != *stack)
-		current = current->next;
-	current->next = NULL;
+	prev_last = *stack;
+	while (prev_last->next->next)
+		prev_last = prev_last->next;
+	last = prev_last->next;
+	prev_last->next = NULL;
 	last->next = *stack;
 	*stack = last;
 }
