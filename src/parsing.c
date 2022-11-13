@@ -6,7 +6,7 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/13 14:52:52 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/13 20:47:54 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	check(char **argv, int argc)
 		if (!*argv[i] || !check_num(argv[i]) || check_repeat(tmpo, argv, i))
 			return (1);
 		tmpo = ft_atol(argv[i]);
-		if (tmpo <= -2147483648 || tmpo >= 2147483647)
+		if (tmpo < -2147483648 || tmpo > 2147483647)
 			return (1);
 		i++;
 	}
