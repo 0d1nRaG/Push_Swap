@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aleveil <aleveil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/13 20:35:08 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/14 11:21:27 by aleveil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 #include <limits.h>
 
-int	stack_is_not_sorted(t_node	**stack)
+int	stack_is_sorted(t_node **stack)
 {
-	t_node	*head;
+	t_node	*current;
 
-	head = *stack;
+	current = *stack;
 	if (!stack)
 		exit(1);
-	while (head->next)
+	while (current->next)
 	{
-		if (head->index > head->next->index)
-			return (1);
-		head = head->next;
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
 	}
-	return (0);
+	return (1);
 }
 
 static	t_node	*get_min(t_node **stack)
@@ -88,9 +87,9 @@ void	little_sorting(t_node	**stack)
 {
 	int	stack_taille;
 
-	if (!stack_is_not_sorted(stack) || stack_size(*stack) == 0
+	if (stack_is_sorted(stack) || stack_size(*stack) == 0
 		|| stack_size(*stack) == 1)
-			return ;
+		return ;
 	stack_taille = stack_size(*stack);
 	if (stack_taille == 2)
 		sa(stack);
@@ -98,8 +97,8 @@ void	little_sorting(t_node	**stack)
 		sort_three(stack);
 	else if (stack_taille == 4)
 		sort_four(stack);
-	/*else if (stack_taille == 5)
-		// tri ici pour 5 values*/
+	else if (stack_taille == 5)
+		sort_five(stack);
 }
 
 void	free_stack(t_node	**stack)

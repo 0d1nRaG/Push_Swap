@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aleveil <aleveil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/13 21:35:54 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/14 11:31:10 by aleveil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		create_stack(ft_split(argv[1], ' '), argc, stack_a);
 	else
 		create_stack(argv, argc, stack_a);
-	if (!stack_is_not_sorted(stack_a))
+	if (stack_is_sorted(stack_a))
 	{
 		free_stack(stack_a);
 		free_stack(stack_b);
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 	}
 	put_index(stack_a);
 	choose_sort(stack_a, stack_b);
+	print_stacks(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
