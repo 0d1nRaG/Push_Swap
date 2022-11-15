@@ -6,7 +6,7 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:35:36 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/13 20:47:54 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/15 21:53:48 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	int	check_num(char *str)
 	i = 0;
 	if (ft_strlen(str) < 1)
 		return (0);
-	if (str[0] == '-')
+	if (str[0] == '-' && ft_isdigit(str[i + 1]))
 		i++;
 	while (str[i])
 	{
