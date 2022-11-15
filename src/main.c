@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveil <aleveil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/14 11:31:10 by aleveil          ###   ########.fr       */
+/*   Updated: 2022/11/15 13:23:44 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	choose_sort(t_node	**stack_a, t_node	**stack_b)
 {
 	if (stack_size(*stack_a) <= 5)
-		little_sorting(stack_a);
+		little_sorting(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
 }

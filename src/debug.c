@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveil <aleveil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:58:43 by aleveil           #+#    #+#             */
-/*   Updated: 2022/11/14 15:59:13 by aleveil          ###   ########.fr       */
+/*   Updated: 2022/11/15 13:14:14 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	print_stack(t_node	**stack)
 {
 	t_node	*current;
 
-	current_a = *stack_a;
+	current = *stack;
 	ft_putstr_fd("[Stack] : ", 1);
 	while (current)
 	{

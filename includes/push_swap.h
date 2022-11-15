@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveil <aleveil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:16:43 by tcaborde          #+#    #+#             */
-/*   Updated: 2022/11/14 11:30:45 by aleveil          ###   ########.fr       */
+/*   Updated: 2022/11/15 13:24:04 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ void		rotate(t_node **stack);
 void		rev_rotate(t_node **stack);
 void		free_stack(t_node **stack);
 void		put_index(t_node **stack);
-void		little_sorting(t_node **stack);
+void		little_sorting(t_node	**stack_a, t_node	**stack_b);
 void		radix_sort(t_node **stack_a, t_node **stack_b);
 void		sort_three(t_node **stack_a);
 void		sort_four(t_node **stack_a);
-void		sort_five(t_node **stack_a);
+void		bony_sort_five(t_node	**stack_a, t_node	**stack_b);
+//void		sort_five(t_node **stack_a);
 void		print_stacks(t_node **stack_a, t_node **stack_b);
 
 #endif

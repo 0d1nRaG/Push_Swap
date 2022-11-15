@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveil <aleveil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/14 11:21:27 by aleveil          ###   ########.fr       */
+/*   Updated: 2022/11/15 13:23:13 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,22 +83,22 @@ void	put_index(t_node	**stack)
 	}
 }
 
-void	little_sorting(t_node	**stack)
+void	little_sorting(t_node	**stack_a, t_node	**stack_b)
 {
 	int	stack_taille;
 
-	if (stack_is_sorted(stack) || stack_size(*stack) == 0
-		|| stack_size(*stack) == 1)
+	if (stack_is_sorted(stack_a) || stack_size(*stack_a) == 0
+		|| stack_size(*stack_a) == 1)
 		return ;
-	stack_taille = stack_size(*stack);
+	stack_taille = stack_size(*stack_a);
 	if (stack_taille == 2)
-		sa(stack);
+		sa(stack_a);
 	else if (stack_taille == 3)
-		sort_three(stack);
+		sort_three(stack_a);
 	else if (stack_taille == 4)
-		sort_four(stack);
+		sort_four(stack_a);
 	else if (stack_taille == 5)
-		sort_five(stack);
+		bony_sort_five(stack_a, stack_b);
 }
 
 void	free_stack(t_node	**stack)
