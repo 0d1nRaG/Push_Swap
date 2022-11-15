@@ -6,7 +6,7 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:16:43 by tcaborde          #+#    #+#             */
-/*   Updated: 2022/11/15 14:13:21 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/15 14:26:33 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include "../libft/libft.h"
-#include <limits.h>
+# include <limits.h>
 
 typedef struct s_node
 {

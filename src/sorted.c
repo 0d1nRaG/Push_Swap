@@ -6,7 +6,7 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/15 14:13:24 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/15 14:42:45 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,3 @@ void	little_sorting(t_node	**stack_a, t_node	**stack_b)
 		sort_five(stack_a, stack_b);
 }
 
-void	free_stack(t_node	**stack)
-{
-	t_node	*head;
-	t_node	*tmp;
-
-	head = *stack;
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-	free(stack);
-}

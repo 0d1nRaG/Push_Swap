@@ -6,7 +6,7 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:09:21 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/15 14:18:01 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/15 14:46:32 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ static void	choose_sort(t_node	**stack_a, t_node	**stack_b)
 		little_sorting(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
+}
+
+static void	free_both_stacks(t_node	**stack_a, t_node	**stack_b)
+{
+	free_stack(stack_a);
+	free_stack(stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -39,13 +45,10 @@ int	main(int argc, char **argv)
 		create_stack(argv, argc, stack_a);
 	if (stack_is_sorted(stack_a))
 	{
-		free_stack(stack_a);
-		free_stack(stack_b);
+		free_both_stacks(stack_a, stack_b);
 		return (0);
 	}
 	put_index(stack_a);
 	choose_sort(stack_a, stack_b);
-	print_stacks(stack_a, stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	free_both_stacks(stack_a, stack_b);
 }
