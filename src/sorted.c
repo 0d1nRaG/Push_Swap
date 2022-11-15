@@ -6,12 +6,11 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/15 13:23:13 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/15 14:13:24 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <limits.h>
 
 int	stack_is_sorted(t_node **stack)
 {
@@ -98,7 +97,7 @@ void	little_sorting(t_node	**stack_a, t_node	**stack_b)
 	else if (stack_taille == 4)
 		sort_four(stack_a);
 	else if (stack_taille == 5)
-		bony_sort_five(stack_a, stack_b);
+		sort_five(stack_a, stack_b);
 }
 
 void	free_stack(t_node	**stack)
