@@ -6,7 +6,7 @@
 /*   By: tobiaslst <tobiaslst@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:07:57 by tobiaslst         #+#    #+#             */
-/*   Updated: 2022/11/15 14:42:45 by tobiaslst        ###   ########.fr       */
+/*   Updated: 2022/11/15 14:48:29 by tobiaslst        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,3 @@ void	little_sorting(t_node	**stack_a, t_node	**stack_b)
 	else if (stack_taille == 5)
 		sort_five(stack_a, stack_b);
 }
-
